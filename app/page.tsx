@@ -54,7 +54,7 @@ const links = [
     icon: Headphones,
     title: "상품권 구매하기",    
     description: "다양한 상품권 구매",
-    url: "https://smartstore.naver.com/nowtkoutlet/category/ALL?cp=1",
+    url: "https://smartstore.naver.com/bbalkangkon",
   },
   {
     icon: Gift,
