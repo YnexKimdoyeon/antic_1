@@ -28,20 +28,20 @@ const links = [
   },
   {
     icon: TrendingUp,
+    title: "상품권 시세 보러가기",
+    description: "실시간 시세 확인",
+    url: "https://open.kakao.com/o/gI5DwjVe",
+  },
+  {
+    icon: MessageSquare,
     title: "중고폰 시세 보러가기",
     description: "실시간 시세 확인",
     url: "https://docs.google.com/spreadsheets/d/14qL5oUmkoiaaHiFlcHfOjLArLRMB31XDADxKJnZEKLM/edit?gid=0#gid=0",
   },
   {
-    icon: MessageSquare,
-    title: "중고폰 상담 판매하기",
-    description: "전문 상담원과 거래",
-    url: "https://open.kakao.com/o/gI5DwjVe",
-  },
-  {
     icon: Gamepad2,
-    title: "게임기 판매하기",
-    description: "게임기 빠른 판매",
+    title: "게임기/금 시세보기",
+    description: "오늘의 매입/판매 시세보기",
     url: "https://open.kakao.com/o/sfbDn3Cf",
   },
   {
@@ -52,21 +52,21 @@ const links = [
   },
   {
     icon: Headphones,
-    title: "상품권 상담 판매하기",    
-    description: "1:1 맞춤 상담",
-    url: "https://open.kakao.com/o/gI5DwjVe",
-  },
-  {
-    icon: Gift,
     title: "상품권 구매하기",    
-    description: "다양한 상품권 구매",   
+    description: "다양한 상품권 구매",
     url: "https://smartstore.naver.com/nowtkoutlet/category/ALL?cp=1",
   },
   {
-    icon: Ticket,
-    title: "기프티콘 구매하기",
-    description: "모바일 기프티콘",
+    icon: Gift,
+    title: "기프티콘 구매하기",    
+    description: "모바일 기프티콘",   
     url: "https://smartstore.naver.com/newworldcon",
+  },
+  {
+    icon: Ticket,
+    title: "그 외 상담하러가기",
+    description: "추가 한도 문의하기",
+    url: "https://open.kakao.com/o/gyYwsy7e",
   },
 ]
 
