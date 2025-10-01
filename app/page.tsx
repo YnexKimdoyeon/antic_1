@@ -30,7 +30,7 @@ const links = [
     icon: TrendingUp,
     title: "상품권 시세 보러가기",
     description: "실시간 시세 확인",
-    url: "https://open.kakao.com/o/gI5DwjVe",
+    url: "https://www.jjtk1123.com/general-1-1",
   },
   {
     icon: MessageSquare,
@@ -42,7 +42,7 @@ const links = [
     icon: Gamepad2,
     title: "게임기/금 시세보기",
     description: "오늘의 매입/판매 시세보기",
-    url: "https://open.kakao.com/o/sfbDn3Cf",
+    url: "https://www.jjtk1123.com/single-project",
   },
   {
     icon: Zap,
