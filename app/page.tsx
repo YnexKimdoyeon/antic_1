@@ -106,18 +106,12 @@ const messengers = [
     url: "https://t.me/barogo777",
     color: "hover:bg-sky-500",
   },
-  {
-    name: "네이트온",
-    subtitle: "",
-    icon: Users,
-    url: "#",
-    color: "hover:bg-purple-500",
-  },
+
   {
     name: "전화상담",
     subtitle: "",
     icon: Phone,
-    url: "#",
+    url: "tel:010.5782.5248",
     color: "hover:bg-emerald-500",
   },
 ]
