@@ -18,55 +18,56 @@ import {
   Users,
 } from "lucide-react"
 
+
 const links = [
   {
     icon: CreditCard,
     title: "휴대폰 신용카드 재테크",
     description: "스마트한 금융 솔루션",
-    url: "#",
+    url: "https://www.gk119.com/",
   },
   {
     icon: TrendingUp,
-    title: "휴대폰 시세 보러가기",
+    title: "중고폰 시세 보러가기",
     description: "실시간 시세 확인",
-    url: "#",
+    url: "https://docs.google.com/spreadsheets/d/14qL5oUmkoiaaHiFlcHfOjLArLRMB31XDADxKJnZEKLM/edit?gid=0#gid=0",
   },
   {
     icon: MessageSquare,
-    title: "휴대폰 상담 판매하기",
+    title: "중고폰 상담 판매하기",
     description: "전문 상담원과 거래",
-    url: "#",
+    url: "https://open.kakao.com/o/gI5DwjVe",
   },
   {
     icon: Gamepad2,
     title: "게임기 판매하기",
     description: "게임기 빠른 판매",
-    url: "#",
+    url: "https://open.kakao.com/o/sfbDn3Cf",
   },
   {
     icon: Zap,
-    title: "상품권 자동 판매하기",
+    title: "상품권 자동 판매하기",    
     description: "즉시 자동 거래",
-    url: "#",
+    url: "https://tkoulet.shop/",
   },
   {
     icon: Headphones,
-    title: "상품권 상담 판매하기",
+    title: "상품권 상담 판매하기",    
     description: "1:1 맞춤 상담",
-    url: "#",
+    url: "https://open.kakao.com/o/gI5DwjVe",
   },
   {
     icon: Gift,
-    title: "상품권 구매하기",
-    description: "다양한 상품권 구매",
-    url: "#",
+    title: "상품권 구매하기",    
+    description: "다양한 상품권 구매",   
+    url: "https://smartstore.naver.com/nowtkoutlet/category/ALL?cp=1",
   },
   {
     icon: Ticket,
     title: "기프티콘 구매하기",
     description: "모바일 기프티콘",
-    url: "#",
-  }
+    url: "https://smartstore.naver.com/newworldcon",
+  },
 ]
 
 const messengers = [
