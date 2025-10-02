@@ -36,7 +36,7 @@ const links = [
     icon: MessageSquare,
     title: "중고폰 시세 보러가기",
     description: "실시간 시세 확인",
-    url: "https://www.jjtk1123.com/",
+    url: "https://www.jjtk1123.com/general-1",
   },
   {
     icon: Gamepad2,
