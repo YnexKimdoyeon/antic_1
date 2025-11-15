@@ -80,7 +80,7 @@ const messengers = [
     name: "카카오톡",
     subtitle: "",
     icon: MessageCircle,
-    url: "http://qr.kakao.com/talk/GXSG4Vv.UI0TQ8EYNrSr8CxC3Zs-",
+    url: "http://qr.kakao.com/talk/WF3_yuXjyE49OM9BlOCD1jsJ5j0-",
     color: "hover:bg-yellow-500",
   },
   {
