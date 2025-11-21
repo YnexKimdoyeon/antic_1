@@ -77,7 +77,7 @@ const channelTalks = [
   },
   {
     title: "게임 문의 채널톡",
-    description: "즉시 상담",
+    description: "게임 · 아이템 즉시 상담",
     url: "https://6qqq.channel.io/home",
     accent: "from-sky-500/15 to-cyan-500/25 border-sky-400/70",
   },
