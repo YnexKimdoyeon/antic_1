@@ -68,14 +68,22 @@ const links = [
   },
 ]
 
-const messengers = [
+const channelTalks = [
   {
-    name: "채널톡",
-    subtitle: "즉시상담가능",
-    icon: MessageSquare,
+    title: "상품권 문의 채널톡",
+    description: "상품권 매입 · 판매 빠른 상담",
     url: "https://barogo777.channel.io/home",
-    color: "hover:bg-blue-500",
+    accent: "from-blue-500/15 to-sky-500/25 border-blue-400/70",
   },
+  {
+    title: "게임 문의 채널톡",
+    description: "즉시 상담",
+    url: "https://6qqq.channel.io/home",
+    accent: "from-sky-500/15 to-cyan-500/25 border-sky-400/70",
+  },
+]
+
+const messengers = [
   {
     name: "카카오톡",
     subtitle: "",
@@ -168,6 +176,33 @@ export default function Home() {
                   메신저 이용시 접속이 안되면 다른 메신저를 이용해주세요.
                 </p>
 
+                <div className="mb-4 sm:mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-1 sm:max-w-[440px] sm:mx-auto">
+                  {channelTalks.map((talk, index) => (
+                    <a
+                      key={index}
+                      href={talk.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group relative flex w-full max-w-full sm:max-w-[220px] items-center gap-2 rounded-3xl border bg-gradient-to-br ${talk.accent} px-3 py-3 sm:px-4 sm:py-3.5 shadow transition-all hover:scale-[1.01] hover:shadow-lg animate-shine`}
+                    >
+                      <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-white/80 text-primary shadow-inner">
+                        <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2.3} />
+                      </div>
+                      <div className="flex flex-col text-left">
+                        <span className="text-[9px] font-semibold uppercase tracking-wide text-sky-700/80">
+                          Channel Talk
+                        </span>
+                        <span className="text-xs sm:text-base font-bold text-foreground">
+                          {talk.title}
+                        </span>
+                        <span className="text-[9px] sm:text-[11px] text-muted-foreground">
+                          {talk.description}
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+
                 <div className="flex flex-wrap items-start justify-center gap-3 sm:gap-4 md:gap-5">
                   {messengers.map((messenger, index) => {
                     const Icon = messenger.icon
@@ -180,9 +215,7 @@ export default function Home() {
                         className="group flex flex-col items-center gap-1.5 sm:gap-2 min-w-[70px] sm:min-w-[80px]"
                       >
                         <div
-                          className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-background/80 backdrop-blur-sm border-2 border-border/50 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:shadow-xl ${messenger.color} ${
-                            messenger.name === "채널톡" ? "animate-shine" : ""
-                          }`}
+                          className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-background/80 backdrop-blur-sm border-2 border-border/50 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:shadow-xl ${messenger.color}`}
                         >
                           <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
                         </div>
