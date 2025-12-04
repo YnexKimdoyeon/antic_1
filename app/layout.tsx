@@ -8,7 +8,7 @@ import Script from "next/script"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "바로팩토리 상담센터",
+  title: "바로팩토리",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
