@@ -121,6 +121,12 @@ const messengers = [
   },
 ]
 
+// 배너 설정
+const bannerConfig = {
+  imageUrl: "https://i.postimg.cc/cHJ5mmFh/Kakao-Talk-20251205-155118100.png", // 배너 이미지 URL로 변경하세요
+  linkUrl: "https://open.kakao.com/o/scbdYWRh", // 배너 클릭 시 이동할 URL로 변경하세요
+}
+
 export default function Home() {
   return (
     <>
@@ -236,6 +242,28 @@ export default function Home() {
               </CardContent>
             </Card>
           </header>
+
+          {/* 배너 섹션 */}
+          <div className="mb-6 sm:mb-8 w-full">
+            <a
+              href={bannerConfig.linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full transition-transform hover:scale-[1.01] active:scale-[0.99]"
+            >
+              <div className="relative w-full overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={bannerConfig.imageUrl}
+                  alt="배너"
+                  className="w-full h-auto object-cover"
+                  style={{
+                    aspectRatio: "1123/283",
+                    maxHeight: "283px",
+                  }}
+                />
+              </div>
+            </a>
+          </div>
 
           <nav className="mb-8 sm:mb-16 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
             {links.map((link, index) => {
