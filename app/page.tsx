@@ -1,6 +1,16 @@
 "use client"
 
+import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import {
   CreditCard,
   TrendingUp,
@@ -15,6 +25,7 @@ import {
   MessageCircle,
   Send,
   Phone,
+  Building2,
 } from "lucide-react"
 
 const links = [
@@ -127,7 +138,41 @@ const bannerConfig = {
   linkUrl: "https://open.kakao.com/o/scbdYWRh", // 배너 클릭 시 이동할 URL로 변경하세요
 }
 
+// 거래소 설정
+const exchangeConfig = {
+  password: "1234", // 비밀번호를 여기에 설정하세요
+  linkUrl: "https://example.com", // 거래소 링크를 여기에 설정하세요
+}
+
 export default function Home() {
+  const [isExchangeDialogOpen, setIsExchangeDialogOpen] = useState(false)
+  const [password, setPassword] = useState("")
+  const [passwordError, setPasswordError] = useState("")
+
+  const handleExchangeClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setIsExchangeDialogOpen(true)
+    setPassword("")
+    setPasswordError("")
+  }
+
+  const handlePasswordSubmit = () => {
+    if (password === exchangeConfig.password) {
+      setPasswordError("")
+      setIsExchangeDialogOpen(false)
+      window.open(exchangeConfig.linkUrl, "_blank", "noopener,noreferrer")
+      setPassword("")
+    } else {
+      setPasswordError("비밀번호가 일치하지 않습니다.")
+    }
+  }
+
+  const handlePasswordKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handlePasswordSubmit()
+    }
+  }
+
   return (
     <>
       {/* 🔵 채널톡 반짝이는 파란 테두리 효과 */}
@@ -238,6 +283,20 @@ export default function Home() {
                       </a>
                     )
                   })}
+                  {/* 거래소 아이콘 */}
+                  <button
+                    onClick={handleExchangeClick}
+                    className="group flex flex-col items-center gap-1.5 sm:gap-2 min-w-[70px] sm:min-w-[80px]"
+                  >
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-background/80 backdrop-blur-sm border-2 border-border/50 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:shadow-xl hover:bg-purple-500">
+                      <Building2 className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
+                    </div>
+                    <div className="text-center min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+                      <span className="block text-[10px] sm:text-xs font-medium text-foreground/80 group-hover:text-foreground transition-colors leading-tight">
+                        거래소
+                      </span>
+                    </div>
+                  </button>
                 </div>
               </CardContent>
             </Card>
@@ -304,6 +363,50 @@ export default function Home() {
           </footer>
         </div>
       </main>
+
+      {/* 거래소 비밀번호 입력 다이얼로그 */}
+      <Dialog open={isExchangeDialogOpen} onOpenChange={setIsExchangeDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>거래소 접근</DialogTitle>
+            <DialogDescription>
+              거래소에 접근하려면 비밀번호를 입력해주세요.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Input
+                type="password"
+                placeholder="비밀번호를 입력하세요"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                  setPasswordError("")
+                }}
+                onKeyPress={handlePasswordKeyPress}
+                className={passwordError ? "border-destructive" : ""}
+                autoFocus
+              />
+              {passwordError && (
+                <p className="text-sm text-destructive">{passwordError}</p>
+              )}
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setIsExchangeDialogOpen(false)
+                  setPassword("")
+                  setPasswordError("")
+                }}
+              >
+                취소
+              </Button>
+              <Button onClick={handlePasswordSubmit}>확인</Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }
