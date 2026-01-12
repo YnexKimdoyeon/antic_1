@@ -45,15 +45,16 @@ export const metadata: Metadata = {
       { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
     ],
+    shortcut: ["/favicon.ico"],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
 
   openGraph: {
     type: "website",
     siteName: "바로팩토리",
-    title: "바로팩토리 | 안전하고 빠른 상품권 거래 플랫폼",
+    title: "바로팩토리 | 안전하고 빠른 상품권 거래 플랫폼, 신뢰할 수 있는 금융 서비스",
     description:
-      "안전한 시스템 기반의 상품권 거래 플랫폼 바로팩토리",
+      "바로팩토리는 안전한 시스템 기반으로 상품권 거래를 빠르고 편리하게 지원하는 상품권 거래 플랫폼입니다.",
     url: "https://www.untactsave.com/",
     locale: "ko_KR",
     images: [
@@ -65,20 +66,27 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "바로팩토리",
-    description: "안전하고 빠른 상품권 거래 플랫폼",
+    title: "바로팩토리 | 안전하고 빠른 상품권 거래 플랫폼",
+    description:
+      "바로팩토리는 안전하고 빠른 상품권 거래를 지원하는 상품권 거래 플랫폼입니다.",
     images: ["https://i.postimg.cc/cHJ5mmFh/Kakao-Talk-20251205-155118100.png"],
   },
 
   other: {
     keywords:
       "바로팩토리, 상품권 거래, 상품권 매입, 상품권 판매, 기프티콘",
+    classification:
+      "상품권 거래 플랫폼, 상품권 매입, 상품권 판매",
     "theme-color": "#ffffff",
+    "msapplication-TileColor": "#ffffff",
+    "msapplication-TileImage": "/mstile-144x144.png",
+    "article:tag":
+      "바로팩토리, 상품권 거래 플랫폼, 상품권 거래, 상품권 매입, 상품권 판매",
   },
 }
 
 /* ================================
-   RootLayout (단 1개!)
+   RootLayout (단 1개)
 ================================ */
 export default function RootLayout({
   children,
@@ -87,9 +95,22 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    url: "https://www.untactsave.com/",
-    name: "바로팩토리",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.untactsave.com/#website",
+        url: "https://www.untactsave.com/",
+        name: "바로팩토리",
+        inLanguage: "ko-KR",
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.untactsave.com/#organization",
+        name: "바로팩토리",
+        url: "https://www.untactsave.com/",
+        sameAs: ["https://www.untactsave.com/"],
+      },
+    ],
   }
 
   return (
