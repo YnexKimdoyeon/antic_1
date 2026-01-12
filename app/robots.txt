@@ -1,0 +1,26 @@
+# robots.txt for untactsave.com
+# 목적: 네이버·구글·빙 검색엔진 최적화 및 인덱싱 안정성 강화
+
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cgi-bin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /search
+Allow: /
+
+# 네이버 공식봇 (Yeti)
+User-agent: Yeti
+Allow: /
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# 사이트맵
+Sitemap: https://samfarm.co.kr/sitemap-index.xml
