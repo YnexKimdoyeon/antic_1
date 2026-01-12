@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "바로팩토리는 안전하고 빠른 상품권 거래를 위한 상품권 거래 플랫폼입니다. 비대면 환경에서도 신뢰할 수 있는 거래 구조로 상품권 매입·판매 및 관련 금융 서비스를 편리하게 이용할 수 있도록 지원합니다.",
 
   verification: {
-    google: "6XnGijBG6ODBwR5FCBUmBD_pPXlBG7ueJIHCVIxRklM",
+    google: "2b6cVESGBmMKqKKVYBtbbHz53tLPmT5SPGecFfdRibk",
     other: {
       "naver-site-verification": "0bc0131748a50b4b67714572cbc28af2d4f01ae6",
     },
