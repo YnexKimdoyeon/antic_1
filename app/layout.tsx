@@ -117,7 +117,7 @@ export const metadata: Metadata = {
     "msapplication-TileColor": "#ffffff",
     "msapplication-TileImage": "/mstile-144x144.png",
 
-    // Article Tags (중복 meta로 여러 개가 필요하니 layout에서 head에 직접 넣는 게 가장 정확하지만,
+    // Article Tags (중복 meta로 여러 개가 필요하니 layout에서 head에 직접 넣는 게 가장 정확,
     // metadata other에서는 1개 값만 가능해서, 여기서는 CSV 형태로 보존)
     "article:tag":
       "바로팩토리, 상품권 거래 플랫폼, 상품권 거래, 상품권 매입, 상품권 판매, 기프티콘, 모바일상품권, 실시간 시세, 자동 거래, 비대면 거래",
@@ -125,8 +125,8 @@ export const metadata: Metadata = {
 };
 
 // -------------------------------
-// JSON-LD는 metadata로 못 넣습니다.
-// 아래처럼 <head>에 script로 직접 삽입하세요.
+// JSON-LD는 metadata 삽입 NO.
+// 아래 <head>에 script로 직접 삽입
 // -------------------------------
 
 export default function RootLayout({
