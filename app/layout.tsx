@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   // ================================
   // 기본 인증 (네이버 / 구글)
   // ================================
+  <meta name="naver-site-verification" content="0bc0131748a50b4b67714572cbc28af2d4f01ae6" />
   verification: {
     google: "6XnGijBG6ODBwR5FCBUmBD_pPXlBG7ueJIHCVIxRklM",
     other: {
