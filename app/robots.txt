@@ -23,4 +23,4 @@ User-agent: Bingbot
 Allow: /
 
 # 사이트맵
-sitemap: "https://www.untactsave.com/sitemap-index.xml",
+Sitemap: https://www.untactsave.com/sitemap-index.xml
