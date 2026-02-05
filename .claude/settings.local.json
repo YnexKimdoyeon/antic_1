@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(if not exist \"C:\\\\Users\\\\Doyeon\\\\Downloads\\\\antic_1-main\\\\antic_1-main\\\\app\\\\admin\" mkdir \"C:\\\\Users\\\\Doyeon\\\\Downloads\\\\antic_1-main\\\\antic_1-main\\\\app\\\\admin\")",
+      "Bash(npx next build:*)"
+    ]
+  }
+}

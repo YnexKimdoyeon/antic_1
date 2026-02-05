@@ -1,0 +1,416 @@
+"use client"
+
+import { useState } from "react"
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { PopupModal } from "@/components/popup-modal"
+import {
+  CreditCard,
+  TrendingUp,
+  MessageSquare,
+  Gamepad2,
+  Zap,
+  Headphones,
+  Gift,
+  Ticket,
+  ArrowUpRight,
+  Award,
+  MessageCircle,
+  Send,
+  Phone,
+  Building2,
+} from "lucide-react"
+
+const links = [
+  {
+    icon: CreditCard,
+    title: "휴대폰 신용카드 재테크",
+    description: "스마트한 금융 솔루션",
+    url: "https://www.gk119.com/",
+  },
+  {
+    icon: TrendingUp,
+    title: "상품권 시세 보러가기",
+    description: "실시간 시세 확인",
+    url: "https://www.jjtk1123.com/general-1-1",
+  },
+  {
+    icon: MessageSquare,
+    title: "중고폰 시세 보러가기",
+    description: "실시간 시세 확인",
+    url: "https://www.jjtk1123.com/general-1",
+  },
+  {
+    icon: Gamepad2,
+    title: "게임기/금 시세보기",
+    description: "오늘의 매입/판매 시세보기",
+    url: "https://www.jjtk1123.com/single-project",
+  },
+  {
+    icon: Zap,
+    title: "상품권 자동 판매하기",
+    description: "즉시 자동 거래",
+    url: "https://tkoulet.shop/",
+  },
+  {
+    icon: Headphones,
+    title: "상품권 구매하기",
+    description: "다양한 상품권 구매",
+    url: "https://mkt.shopping.naver.com/link/697f57b992a45c3c297783b3",
+  },
+  {
+    icon: Gift,
+    title: "기프티콘 구매하기",
+    description: "모바일 기프티콘",
+    url: "https://mkt.shopping.naver.com/link/697f53d641a1733726ec60e6",
+  },
+  {
+    icon: Ticket,
+    title: "그 외 상담하러가기",
+    description: "추가 한도 문의하기",
+    url: "https://open.kakao.com/o/gyYwsy7e",
+  },
+]
+
+const channelTalks = [
+  {
+    title: "상품권 문의 채널톡",
+    description: "상품권 매입 · 판매 빠른 상담",
+    url: "https://barogo777.channel.io/home",
+    accent: "from-blue-500/15 to-sky-500/25 border-blue-400/70",
+  },
+  {
+    title: "게임 문의 채널톡",
+    description: "게임 · 아이템 즉시 상담",
+    url: "https://6qqq.channel.io/home",
+    accent: "from-sky-500/15 to-cyan-500/25 border-sky-400/70",
+  },
+]
+
+const messengers = [
+  {
+    name: "카카오톡",
+    subtitle: "",
+    icon: MessageCircle,
+    url: "http://qr.kakao.com/talk/6qPQaIL85aJrPYrF2PhCMheYxc8-",
+    color: "hover:bg-yellow-500",
+  },
+  {
+    name: "오픈카톡",
+    subtitle: "",
+    icon: MessageCircle,
+    url: "https://open.kakao.com/o/s5cYioVh",
+    color: "hover:bg-yellow-400",
+  },
+  {
+    name: "라인",
+    subtitle: "",
+    icon: MessageCircle,
+    url: "https://line.me/ti/p/XFXtrmSuWH",
+    color: "hover:bg-green-500",
+  },
+  {
+    name: "텔레그램",
+    subtitle: "",
+    icon: Send,
+    url: "https://t.me/barogo777",
+    color: "hover:bg-sky-500",
+  },
+  {
+    name: "전화상담",
+    subtitle: "",
+    icon: Phone,
+    url: "tel:010.5782.5248",
+    color: "hover:bg-emerald-500",
+  },
+]
+
+// 배너 설정
+const bannerConfig = {
+  imageUrl: "https://i.postimg.cc/cHJ5mmFh/Kakao-Talk-20251205-155118100.png", // 배너 이미지 URL로 변경하세요
+  linkUrl: "https://open.kakao.com/o/scbdYWRh", // 배너 클릭 시 이동할 URL로 변경하세요
+}
+
+// 거래소 설정
+const exchangeConfig = {
+  password: "7777", // 비밀번호를 여기에 설정하세요
+  linkUrl: "https://open.kakao.com/o/sOY0Bc5h", // 거래소 링크를 여기에 설정하세요
+}
+
+export default function Home() {
+  const [isExchangeDialogOpen, setIsExchangeDialogOpen] = useState(false)
+  const [password, setPassword] = useState("")
+  const [passwordError, setPasswordError] = useState("")
+
+  const handleExchangeClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setIsExchangeDialogOpen(true)
+    setPassword("")
+    setPasswordError("")
+  }
+
+  const handlePasswordSubmit = () => {
+    if (password === exchangeConfig.password) {
+      setPasswordError("")
+      setIsExchangeDialogOpen(false)
+      window.open(exchangeConfig.linkUrl, "_blank", "noopener,noreferrer")
+      setPassword("")
+    } else {
+      setPasswordError("비밀번호가 일치하지 않습니다.")
+    }
+  }
+
+  const handlePasswordKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handlePasswordSubmit()
+    }
+  }
+
+  return (
+    <>
+      {/* 팝업 모달 */}
+      <PopupModal />
+
+      {/* 🔵 채널톡 반짝이는 파란 테두리 효과 */}
+      <style jsx global>{`
+        @keyframes shine {
+          0% {
+            border-color: #3b82f6;
+            box-shadow: 0 0 5px #3b82f6;
+          }
+          50% {
+            border-color: #60a5fa;
+            box-shadow: 0 0 15px #60a5fa;
+          }
+          100% {
+            border-color: #3b82f6;
+            box-shadow: 0 0 5px #3b82f6;
+          }
+        }
+        .animate-shine {
+          animation: shine 2s infinite ease-in-out;
+        }
+      `}</style>
+
+      <main className="min-h-screen bg-gradient-to-br from-background via-accent/20 to-secondary/5">
+        <div className="mx-auto max-w-[1200px] px-3 py-6 sm:px-6 sm:py-12 md:px-8">
+          <header className="mb-6 sm:mb-12 text-center">
+            <div className="mb-3 sm:mb-6 inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/10 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-sm font-medium text-primary backdrop-blur-sm border border-primary/20">
+              <Award className="h-3 w-3 sm:h-4 sm:w-4" />
+              <span>신뢰할 수 있는 거래 플랫폼</span>
+            </div>
+
+            <h1 className="mb-2 sm:mb-3 text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text px-2">
+              상품권 거래 플랫폼
+            </h1>
+
+            <p className="mb-4 sm:mb-6 text-pretty text-sm sm:text-lg leading-relaxed text-muted-foreground px-4">
+              안전하고 빠른 상품권 거래
+              <br />
+              <span className="text-xs sm:text-base">신뢰할 수 있는 금융 서비스</span>
+            </p>
+
+            <Card className="mb-6 sm:mb-8 mx-auto max-w-3xl overflow-hidden border-border/50 bg-gradient-to-br from-card/95 via-card/90 to-accent/5 backdrop-blur-sm shadow-lg">
+              <CardContent className="p-4 sm:p-6 md:p-8">
+                <div className="mb-3 sm:mb-4 flex items-center justify-center gap-2">
+                  <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                  <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
+                    바로가기 메신저
+                  </h2>
+                </div>
+
+                <p className="text-[10px] sm:text-xs text-muted-foreground/70 mb-4 sm:mb-6 px-2">
+                  메신저 이용시 접속이 안되면 다른 메신저를 이용해주세요.
+                </p>
+
+                <div className="mb-4 sm:mb-6 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-1 sm:max-w-[440px] sm:mx-auto">
+                  {channelTalks.map((talk, index) => (
+                    <a
+                      key={index}
+                      href={talk.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group relative flex w-full max-w-full sm:max-w-[220px] items-center gap-2 rounded-3xl border bg-gradient-to-br ${talk.accent} px-3 py-3 sm:px-4 sm:py-3.5 shadow transition-all hover:scale-[1.01] hover:shadow-lg animate-shine`}
+                    >
+                      <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-2xl bg-white/80 text-primary shadow-inner">
+                        <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2.3} />
+                      </div>
+                      <div className="flex flex-col text-left">
+                        <span className="text-[9px] font-semibold uppercase tracking-wide text-sky-700/80">
+                          Channel Talk
+                        </span>
+                        <span className="text-xs sm:text-base font-bold text-foreground">
+                          {talk.title}
+                        </span>
+                        <span className="text-[9px] sm:text-[11px] text-muted-foreground">
+                          {talk.description}
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-start justify-center gap-3 sm:gap-4 md:gap-5">
+                  {messengers.map((messenger, index) => {
+                    const Icon = messenger.icon
+                    return (
+                      <a
+                        key={index}
+                        href={messenger.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex flex-col items-center gap-1.5 sm:gap-2 min-w-[70px] sm:min-w-[80px]"
+                      >
+                        <div
+                          className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-background/80 backdrop-blur-sm border-2 border-border/50 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:shadow-xl ${messenger.color}`}
+                        >
+                          <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
+                        </div>
+                        <div className="text-center min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+                          <span className="block text-[10px] sm:text-xs font-medium text-foreground/80 group-hover:text-foreground transition-colors leading-tight">
+                            {messenger.name}
+                          </span>
+                          {messenger.subtitle && (
+                            <span className="block text-[9px] sm:text-[10px] text-muted-foreground/60 leading-tight max-w-[70px] sm:max-w-[80px] mt-0.5">
+                              {messenger.subtitle}
+                            </span>
+                          )}
+                        </div>
+                      </a>
+                    )
+                  })}
+                  {/* 거래소 아이콘 */}
+                  <button
+                    onClick={handleExchangeClick}
+                    className="group flex flex-col items-center gap-1.5 sm:gap-2 min-w-[70px] sm:min-w-[80px]"
+                  >
+                    <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-background/80 backdrop-blur-sm border-2 border-border/50 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:shadow-xl hover:bg-purple-500">
+                      <Building2 className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
+                    </div>
+                    <div className="text-center min-h-[32px] sm:min-h-[36px] flex flex-col justify-start">
+                      <span className="block text-[10px] sm:text-xs font-medium text-foreground/80 group-hover:text-foreground transition-colors leading-tight">
+                        거래소
+                      </span>
+                    </div>
+                  </button>
+                </div>
+              </CardContent>
+            </Card>
+          </header>
+
+          {/* 배너 섹션 */}
+          <div className="mb-6 sm:mb-8 w-full">
+            <a
+              href={bannerConfig.linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full transition-transform hover:scale-[1.01] active:scale-[0.99]"
+            >
+              <div className="relative w-full overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src={bannerConfig.imageUrl}
+                  alt="배너"
+                  className="w-full h-auto object-cover"
+                  style={{
+                    aspectRatio: "1123/283",
+                    maxHeight: "283px",
+                  }}
+                />
+              </div>
+            </a>
+          </div>
+
+          <nav className="mb-8 sm:mb-16 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+            {links.map((link, index) => {
+              const Icon = link.icon
+              return (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block transition-transform active:scale-[0.97]"
+                >
+                  <Card className="group h-full overflow-hidden border-border/50 bg-card/80 backdrop-blur-sm shadow-md transition-all hover:scale-[1.02] hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
+                    <CardContent className="flex h-full flex-col items-center gap-2 sm:gap-3 p-4 sm:p-6 text-center">
+                      <div className="flex h-12 w-12 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary transition-all group-hover:from-primary group-hover:to-secondary group-hover:text-primary-foreground group-hover:shadow-lg group-hover:scale-110">
+                        <Icon className="h-5 w-5 sm:h-7 sm:w-7" strokeWidth={2.5} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="mb-1 sm:mb-2 font-bold text-xs sm:text-base text-card-foreground leading-tight">
+                          {link.title}
+                        </h3>
+                        <p className="text-[10px] sm:text-sm text-muted-foreground/80 leading-snug">
+                          {link.description}
+                        </p>
+                      </div>
+                      <ArrowUpRight className="h-3.5 w-3.5 sm:h-5 sm:w-5 text-muted-foreground/50 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary" />
+                    </CardContent>
+                  </Card>
+                </a>
+              )
+            })}
+          </nav>
+
+          <footer className="text-center px-2">
+            <p className="text-[10px] sm:text-sm text-muted-foreground/70">
+              © 2025 상품권 거래 플랫폼. All rights reserved.
+            </p>
+          </footer>
+        </div>
+      </main>
+
+      {/* 거래소 비밀번호 입력 다이얼로그 */}
+      <Dialog open={isExchangeDialogOpen} onOpenChange={setIsExchangeDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>거래소 접근</DialogTitle>
+            <DialogDescription>
+              거래소에 접근하려면 비밀번호를 입력해주세요.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Input
+                type="password"
+                placeholder="비밀번호를 입력하세요"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                  setPasswordError("")
+                }}
+                onKeyPress={handlePasswordKeyPress}
+                className={passwordError ? "border-destructive" : ""}
+                autoFocus
+              />
+              {passwordError && (
+                <p className="text-sm text-destructive">{passwordError}</p>
+              )}
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setIsExchangeDialogOpen(false)
+                  setPassword("")
+                  setPasswordError("")
+                }}
+              >
+                취소
+              </Button>
+              <Button onClick={handlePasswordSubmit}>확인</Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  )
+}
