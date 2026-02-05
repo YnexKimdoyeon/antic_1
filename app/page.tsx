@@ -34,7 +34,7 @@ const links = [
     icon: CreditCard,
     title: "휴대폰 신용카드 재테크",
     description: "스마트한 금융 솔루션",
-    url: "https://www.gk119.com/",
+    url: "https://tkoutlet.co.kr/",
   },
   {
     icon: TrendingUp,
