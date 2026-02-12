@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { PopupModal } from "@/components/popup-modal"
+import { PriceTicker } from "@/components/price-ticker"
 import {
   CreditCard,
   TrendingUp,
@@ -34,7 +35,7 @@ const links = [
     icon: CreditCard,
     title: "휴대폰 신용카드 재테크",
     description: "스마트한 금융 솔루션",
-    url: "https://tkoutlet.co.kr/",
+    url: "https://www.gk119.com/",
   },
   {
     icon: TrendingUp,
@@ -327,6 +328,9 @@ export default function Home() {
               </div>
             </a>
           </div>
+
+          {/* 실시간 시세 */}
+          <PriceTicker />
 
           <nav className="mb-8 sm:mb-16 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
             {links.map((link, index) => {
