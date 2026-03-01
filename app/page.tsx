@@ -108,7 +108,7 @@ const messengers = [
     name: "오픈카톡",
     subtitle: "",
     icon: MessageCircle,
-    url: "https://open.kakao.com/o/s5cYioVh",
+    url: "https://open.kakao.com/o/sbx80Uii",
     color: "hover:bg-yellow-400",
   },
   {
@@ -418,5 +418,6 @@ export default function Home() {
     </>
   )
 }
+
 
 
