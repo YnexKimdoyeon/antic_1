@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server"
 
+// Vercel 서버리스 함수를 한국 리전에서 실행
+export const runtime = "edge"
+export const preferredRegion = "icn1"
+
 // 서버 캐시 (60초)
 let cachedData: Record<string, unknown> | null = null
 let lastFetchTime = 0
@@ -65,14 +69,17 @@ async function fetchKoreanGoldExchangeAPI(): Promise<KGXPriceEntry[] | null> {
       "https://www.koreagoldx.co.kr/api/price/chart/list",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+          "Referer": "https://www.koreagoldx.co.kr/",
+        },
         body: JSON.stringify({
           srchDt: "1M",
           type: "Au",
           dataDateStart: fmt(oneMonthAgo),
           dataDateEnd: fmt(today),
         }),
-        cache: "no-store",
       }
     )
 
