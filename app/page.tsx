@@ -143,7 +143,7 @@ const bannerConfig = {
 // 거래소 설정
 const exchangeConfig = {
   password: "7777", // 비밀번호를 여기에 설정하세요
-  linkUrl: "https://open.kakao.com/o/sOY0Bc5h", // 거래소 링크를 여기에 설정하세요
+  linkUrl: "busancoin777.channel.io", // 거래소 링크를 여기에 설정하세요
 }
 
 export default function Home() {
@@ -418,6 +418,7 @@ export default function Home() {
     </>
   )
 }
+
 
 
 
