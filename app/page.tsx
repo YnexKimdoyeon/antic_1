@@ -137,7 +137,7 @@ const messengers = [
 // 배너 설정
 const bannerConfig = {
   imageUrl: "https://i.postimg.cc/cHJ5mmFh/Kakao-Talk-20251205-155118100.png", // 배너 이미지 URL로 변경하세요
-  linkUrl: "https://open.kakao.com/o/scbdYWRh", // 배너 클릭 시 이동할 URL로 변경하세요
+  linkUrl: "https://open.kakao.com/o/skIslJki", // 배너 클릭 시 이동할 URL로 변경하세요
 }
 
 // 거래소 설정
@@ -418,6 +418,7 @@ export default function Home() {
     </>
   )
 }
+
 
 
 
