@@ -65,7 +65,7 @@ const links = [
     icon: Headphones,
     title: "상품권 구매하기",
     description: "다양한 상품권 구매",
-    url: "https://mkt.shopping.naver.com/link/697f57b992a45c3c297783b3",
+    url: "https://acgift.net/index.php",
   },
   {
     icon: Gift,
