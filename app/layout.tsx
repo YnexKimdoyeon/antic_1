@@ -16,7 +16,7 @@ import type { Metadata } from "next"
 /* ================================
      Canonical (대표 URL)
 ================================  */
-<link rel="canonical" href="https://www.untactsave.com">
+<link rel="canonical" href="https://www.untactsave.com/">
 
 
 /* ================================
