@@ -71,7 +71,7 @@ const links = [
     icon: Gift,
     title: "기프티콘 구매하기",
     description: "모바일 기프티콘",
-    url: "https://mkt.shopping.naver.com/link/697f53d641a1733726ec60e6",
+    url: "https://mkt.shopping.naver.com/link/69f1b69018984e7c7543d8e6",
   },
   {
     icon: Ticket,
