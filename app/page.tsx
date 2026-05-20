@@ -108,7 +108,7 @@ const messengers = [
     name: "오픈카톡",
     subtitle: "",
     icon: MessageCircle,
-    url: "https://open.kakao.com/o/g1kiULvi",
+    url: "https://open.kakao.com/o/sV44VLvi",
     color: "hover:bg-yellow-400",
   },
   {
